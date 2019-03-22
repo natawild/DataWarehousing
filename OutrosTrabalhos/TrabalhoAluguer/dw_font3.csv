@@ -1,0 +1,7 @@
+data,data_aluguer,data_fim,nome_cliente,nif_cliente,matricula,marca,valor_aluguer,dias_aluguer
+2018-10-29,2018-10-31,2018-11-01,Roseanne Tredget,2987632,CD-43-55,Bentley,50,1
+2019-01-01,2019-01-01,2019-01-05,Amabel McCudden,5816266,65-ZX-47,Ferrari,200,4
+2019-01-01,2019-01-01,2018-12-26,Roseanne Tredget,2987632,CD-43-55,Bentley,100,2
+2018-12-19,2018-12-19,2018-12-26,Dari McGloin,5816266,TH-34-21,Maserati,280,7
+2018-12-17,2018-12-19,2018-11-09,Luigi Lankham,8321323,34-XV-09,Porsche,225,5
+2018-11-19,2018-11-19,2018-11-25,Dari McGloin,5816266,43-FG-07,Lexus,240,6
