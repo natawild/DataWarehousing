@@ -1,0 +1,15 @@
+﻿A instalar a assemblagem 'C:\Users\celia\Documents\GitHub\DataWarehousing\TrabalhoPratico\OnRoad\Scheduler\BizAgi.Scheduler.Services.exe'.
+Seguem-se os parâmetros afetados:
+   logtoconsole = 
+   name = BizAgiOnRoadSchedulerService
+   assemblypath = C:\Users\celia\Documents\GitHub\DataWarehousing\TrabalhoPratico\OnRoad\Scheduler\BizAgi.Scheduler.Services.exe
+   logfile = C:\Users\celia\Documents\GitHub\DataWarehousing\TrabalhoPratico\OnRoad\Scheduler\BizAgi.Scheduler.Services.InstallLog
+A instalar o serviço BizAgiOnRoadSchedulerService...
+O serviço BizAgiOnRoadSchedulerService foi instalado com êxito.
+A criar a origem de EventLog BizAgiOnRoadSchedulerService no registo Application...
+A confirmar a assemblagem 'C:\Users\celia\Documents\GitHub\DataWarehousing\TrabalhoPratico\OnRoad\Scheduler\BizAgi.Scheduler.Services.exe'.
+Seguem-se os parâmetros afetados:
+   logtoconsole = 
+   name = BizAgiOnRoadSchedulerService
+   assemblypath = C:\Users\celia\Documents\GitHub\DataWarehousing\TrabalhoPratico\OnRoad\Scheduler\BizAgi.Scheduler.Services.exe
+   logfile = C:\Users\celia\Documents\GitHub\DataWarehousing\TrabalhoPratico\OnRoad\Scheduler\BizAgi.Scheduler.Services.InstallLog
