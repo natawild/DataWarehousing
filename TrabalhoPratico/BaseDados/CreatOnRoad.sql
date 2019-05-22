@@ -5,19 +5,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema DW_OnRoad
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema DW_OnRoad
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `DW_OnRoad` DEFAULT CHARACTER SET utf8 ;
+USE `DW_OnRoad` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`Dim-Veiculo`
+-- Table `DW_OnRoad`.`Dim-Veiculo`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Dim-Veiculo` (
+CREATE TABLE IF NOT EXISTS `DW_OnRoad`.`Dim-Veiculo` (
   `IdVeiculo` INT NOT NULL,
   `Matricula` VARCHAR(45) NOT NULL,
   `NrKms` DECIMAL(9) NOT NULL,
@@ -29,9 +29,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Dim-Cliente`
+-- Table `DW_OnRoad`.`Dim-Cliente`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Dim-Cliente` (
+CREATE TABLE IF NOT EXISTS `DW_OnRoad`.`Dim-Cliente` (
   `IdCliente` INT NOT NULL,
   `Nome` VARCHAR(45) NOT NULL,
   `Nif` VARCHAR(45) NOT NULL,
@@ -45,9 +45,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Dim-Calendario`
+-- Table `DW_OnRoad`.`Dim-Calendario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Dim-Calendario` (
+CREATE TABLE IF NOT EXISTS `DW_OnRoad`.`Dim-Calendario` (
   `Data` DATE NOT NULL,
   `Mes` VARCHAR(25) NOT NULL,
   `Trimestre` CHAR(6) NOT NULL,
@@ -57,9 +57,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`TF-Aluguer`
+-- Table `DW_OnRoad`.`TF-Aluguer`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`TF-Aluguer` (
+CREATE TABLE IF NOT EXISTS `DW_OnRoad`.`TF-Aluguer` (
   `DataAluguer` DATE NOT NULL,
   `DataPrevistaLevantamento` DATE NOT NULL,
   `DataPrevistaEntrega` DATE NOT NULL,
@@ -76,32 +76,32 @@ CREATE TABLE IF NOT EXISTS `mydb`.`TF-Aluguer` (
   INDEX `fk_TF-Aluguer_Dim-Calendario4_idx` (`DataRealEntrega` ASC),
   CONSTRAINT `fk_TF-Aluguer_Dim-Veiculo`
     FOREIGN KEY (`Veiculo`)
-    REFERENCES `mydb`.`Dim-Veiculo` (`IdVeiculo`)
+    REFERENCES `DW_OnRoad`.`Dim-Veiculo` (`IdVeiculo`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_TF-Aluguer_Dim-Cliente1`
     FOREIGN KEY (`Cliente`)
-    REFERENCES `mydb`.`Dim-Cliente` (`IdCliente`)
+    REFERENCES `DW_OnRoad`.`Dim-Cliente` (`IdCliente`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_TF-Aluguer_Dim-Calendario1`
     FOREIGN KEY (`DataAluguer`)
-    REFERENCES `mydb`.`Dim-Calendario` (`Data`)
+    REFERENCES `DW_OnRoad`.`Dim-Calendario` (`Data`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_TF-Aluguer_Dim-Calendario2`
     FOREIGN KEY (`DataPrevistaLevantamento`)
-    REFERENCES `mydb`.`Dim-Calendario` (`Data`)
+    REFERENCES `DW_OnRoad`.`Dim-Calendario` (`Data`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_TF-Aluguer_Dim-Calendario3`
     FOREIGN KEY (`DataPrevistaEntrega`)
-    REFERENCES `mydb`.`Dim-Calendario` (`Data`)
+    REFERENCES `DW_OnRoad`.`Dim-Calendario` (`Data`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_TF-Aluguer_Dim-Calendario4`
     FOREIGN KEY (`DataRealEntrega`)
-    REFERENCES `mydb`.`Dim-Calendario` (`Data`)
+    REFERENCES `DW_OnRoad`.`Dim-Calendario` (`Data`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
