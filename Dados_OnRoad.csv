@@ -1,0 +1,33 @@
+﻿data;data_aluguer;data_fim;nome_cliente;nif_cliente;matricula;marca;valor_aluguer;dias_aluguer;Preco/Dia
+29/10/2018;31/10/2018;01/11/2018;Roseanne Tredget;2987632;CD-43-55;Bentley;20;1;20
+01/01/2019;01/01/2019;04/01/2019;Amabel McCudden;5816266;65-ZX-47;Ferrari;60;3;
+01/01/2019;01/01/2019;04/01/2019;Roseanne Tredget;2987632;CD-43-55;Bentley;60;3;
+19/12/2018;19/12/2018;26/12/2018;Dari McGloin;5816266;TH-34-21;Maserati;140;7;
+17/12/2018;19/12/2018;29/12/2018;Luigi Lankham;8321323;34-XV-09;Porsche;200;10;
+19/11/2018;19/11/2018;25/11/2018;Dari McGloin;5816266;43-FG-07;Lexus;120;6;
+;20/11/2018;26/11/2018;Célia Figueiredo;;CD-43-55;Bentley;120;6;
+;21/11/2018;27/12/2018;Márcia Costa ;;65-ZX-47;Ferrari;720;36;
+;27/11/2018;28/11/2018;Samuel Costa ;;CD-43-55;Bentley;20;1;
+;23/11/2018;25/12/2018;Carolina Silva ;;TH-34-21;Maserati;640;32;
+;24/11/2018;30/11/2018;Ana Sofia Ferreira ;;34-XV-09;Porsche;120;6;
+;26/11/2018;31/12/2018;Ana Carla Silva ;;43-FG-07;Lexus;700;35;
+;29/11/2018;01/12/2018;Josefina Marques ;;CD-43-55;Bentley;40;2;
+;28/11/2018;02/12/2018;Carlitos Costa ;;65-ZX-47;Ferrari;80;4;
+;28/11/2018;03/12/2018;Orlado Cruz ;;49-ZX-49;Toyota;100;5;
+;29/11/2018;04/12/2018;Monica Silva ;;99-TT-09;Audi ;100;5;
+;30/11/2018;07/12/2018;Marta Melo ;;89-XY-00;Mercedes ;140;7;
+;01/12/2018;19/12/2018;Cristovao Colombo ;;01-UI-56;BMW;360;18;
+;02/12/2018;23/12/2018;Luis Oliveira ;;09-TY-90;Seat;420;21;
+;03/12/2018;10/12/2018;Andreia Figueiredo ;;78-RR-98;Dacia ;140;7;
+;04/12/2018;01/01/2019;Laurinda Costa ;;45-WE-23;Opel ;560;28;
+;05/12/2018;02/02/2019;Antonio Campos ;;78-PR-34;Skoda ;1180;59;
+;06/12/2018;11/12/2018;Armanda Lemos;;45-UU-77;Fiat ;100;5;
+;07/12/2018;12/12/2018;Carla Figueiredo ;;25-PZ-99;Renault ;100;5;
+;01/01/2019;08/01/2019;Adriana Pereira ;;55-NN-00;Peugeot ;140;7;
+;02/01/2019;09/01/2019;Barbara Ferreira ;;33-DD-HH;Mini ;140;7;
+;03/01/2019;06/01/2019;Else Costa ;;44-HH-99;Smart ;60;3;
+;04/01/2019;07/01/2019;Diogo Costa ;;34-XY-99;Bentley;60;3;
+;05/01/2019;08/01/2019;Margarida Rolim ;;65-ZX-47;Ferrari;60;3;
+;06/01/2019;09/01/2019;Daniel Sousa ;;CD-43-55;Bentley;60;3;
+;07/01/2019;21/01/2019;Carlos Faria ;;TH-34-21;Maserati;280;14;
+;08/01/2019;19/01/2019;Xavier Francisco;;34-XV-09;Porsche;220;11;
