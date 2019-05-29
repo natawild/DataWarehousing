@@ -1,19 +1,20 @@
 use roadtrip; 
 
 Select date(al.dataAluguer), al.Cliente, al.Veiculo, al.precoAluguer 
-	FROM roadtrip.Aluguer as al
+	FROM roadtrip.Aluguer as al; 
   
 
  -- povoamento inicial da tabela dim-Cliente
 insert into `DW_OnRoad`.`Dim-Cliente` 
-	select idCliente, nome, nif, email, telemovel, dataNascimento, cidade, pais
+	select idCliente, nome, telemovel, dataNascimento, cidade, pais
 	From roadtrip.cliente; 
     
-select * from   `DW_OnRoad`.`Dim-Cliente`;  
+select * from  `DW_OnRoad`.`Dim-Cliente`;  
+
 
  -- povoamento inicial da tabela dim-Veiculo  
 INSERT INTO `DW_OnRoad`.`Dim-Veiculo`
-		select idVeiculo, matricula, nr_Kms, anoCompra, modelo, marca
+		select idVeiculo, matricula, nr_Kms, modelo, marca
         From roadtrip.veiculo; 
         
 select * from `DW_OnRoad`.`Dim-Veiculo`;  
@@ -28,11 +29,12 @@ Select distinct (al.dataAluguer),
     
   -- case is null   
     
-Select * from `DW_OnRoad`.`Dim-Calendario`;     
+Select * from `DW_OnRoad`.`Dim-Calendario`;    
 
-   -- povoamento inicial da tabela de factos Aluguer 
+
+-- povoamento inicial da tabela de factos Aluguer 
  Insert into `DW_OnRoad`.`TF-Aluguer` 
-	Select date(al.dataAluguer), date(al.dataPrevistaLevantamento),date(al.dataPrevistaEntrega),date(al.dataRealEntrega), al.Cliente, al.Veiculo, al.precoAluguer 
+	Select al.idAluguer, date(al.dataAluguer), al.Cliente, al.Veiculo, al.precoAluguer 
 	FROM roadtrip.Aluguer as al; 
     
 SELECT * FROM `DW_OnRoad`.`TF-Aluguer`; 
