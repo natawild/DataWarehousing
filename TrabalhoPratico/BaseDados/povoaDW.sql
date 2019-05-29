@@ -11,7 +11,6 @@ insert into `DW_OnRoad`.`Dim-Cliente`
     
 select * from  `DW_OnRoad`.`Dim-Cliente`;  
 
-
  -- povoamento inicial da tabela dim-Veiculo  
 INSERT INTO `DW_OnRoad`.`Dim-Veiculo`
 		select idVeiculo, matricula, nr_Kms, modelo, marca

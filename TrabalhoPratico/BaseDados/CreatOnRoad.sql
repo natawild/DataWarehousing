@@ -19,7 +19,7 @@ USE `dw_onroad` ;
 -- Table `dw_onroad`.`Dim-Veiculo`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `dw_onroad`.`Dim-Veiculo` (
-  `IdVeiculo` INT NOT NULL,
+  `IdVeiculo` INT NOT NULL AUTO_INCREMENT,
   `Matricula` VARCHAR(45) NOT NULL,
   `NrKms` DECIMAL(9) NOT NULL,
   `Modelo` VARCHAR(20) NOT NULL,
@@ -32,7 +32,7 @@ ENGINE = InnoDB;
 -- Table `dw_onroad`.`Dim-Cliente`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `dw_onroad`.`Dim-Cliente` (
-  `IdCliente` INT NOT NULL,
+  `IdCliente` INT NOT NULL AUTO_INCREMENT,
   `Nome` VARCHAR(45) NOT NULL,
   `Telemovel` INT(9) NOT NULL,
   `DataNascimento` DATE NOT NULL,
@@ -40,7 +40,6 @@ CREATE TABLE IF NOT EXISTS `dw_onroad`.`Dim-Cliente` (
   `Pais` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`IdCliente`))
 ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `dw_onroad`.`Dim-Calendario`
