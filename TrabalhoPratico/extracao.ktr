@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>VPNM_OnRoad</name>
-    <description/>
+    <name>extracao</name>
+    <description>Tranformacao de dados e povoamento</description>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
@@ -437,6 +437,61 @@
   <notepads>
   </notepads>
   <connection>
+    <name>dw</name>
+    <server>localhost</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>dw_onroad</database>
+    <port>3306</port>
+    <username>root</username>
+    <password>Encrypted 2be98afc86aa7f28aaa0daf228a94b9c8</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>3306</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
+    </attributes>
+  </connection>
+  <connection>
     <name>onroad</name>
     <server>localhost</server>
     <type>MYSQL</type>
@@ -492,6 +547,16 @@
     </attributes>
   </connection>
   <order>
+    <hop>
+      <from>CSV file input</from>
+      <to>Tabela Cliente </to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>CSV file input</from>
+      <to>Tabela Veiculo 2</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>CSV file input</name>
@@ -504,7 +569,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>C:\Users\celia\Desktop\Dados_OnRoad_teste.csv</filename>
+    <filename>C:\Users\celia\Documents\GitHub\DataWarehousing\TrabalhoPratico\dadosExcelOnRoad.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -519,14 +584,91 @@
     <encoding/>
     <fields>
       <field>
-        <name>data;data_aluguer;data_fim;nome_cliente;nif_cliente;matricula;marca;valor_aluguer;dias_aluguer;Preco/Dia</name>
+        <name>dataAluguer</name>
+        <type>Date</type>
+        <format>dd/MM/yyyy</format>
+        <currency>€</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>dataFim</name>
+        <type>Date</type>
+        <format>dd/MM/yyyy</format>
+        <currency>€</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Nome</name>
         <type>String</type>
         <format/>
         <currency>€</currency>
         <decimal>,</decimal>
         <group>.</group>
-        <length>82</length>
+        <length>19</length>
         <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>nif</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>€</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>matricula</name>
+        <type>String</type>
+        <format/>
+        <currency>€</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>8</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>marca</name>
+        <type>String</type>
+        <format/>
+        <currency>€</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>9</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>PrecoAluguer</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>€</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DiasAluguer</name>
+        <type>Integer</type>
+        <format>#</format>
+        <currency>€</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>15</length>
+        <precision>0</precision>
         <trim_type>none</trim_type>
       </field>
     </fields>
@@ -539,8 +681,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>176</xloc>
-      <yloc>384</yloc>
+      <xloc>64</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -572,8 +714,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>176</xloc>
-      <yloc>48</yloc>
+      <xloc>416</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -641,8 +783,132 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>176</xloc>
+      <xloc>256</xloc>
       <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Tabela Cliente </name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>dw</connection>
+    <schema/>
+    <table>dim-cliente</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>256</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Tabela Veiculo 2</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>dw</connection>
+    <schema/>
+    <table>dim-veiculo</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+      <field>
+        <column_name>data</column_name>
+        <stream_name>data</stream_name>
+      </field>
+      <field>
+        <column_name>data_aluguer</column_name>
+        <stream_name>data_aluguer</stream_name>
+      </field>
+      <field>
+        <column_name>data_fim</column_name>
+        <stream_name>data_fim</stream_name>
+      </field>
+      <field>
+        <column_name>nome_cliente</column_name>
+        <stream_name>nome_cliente</stream_name>
+      </field>
+      <field>
+        <column_name>nif_cliente</column_name>
+        <stream_name>nif_cliente</stream_name>
+      </field>
+      <field>
+        <column_name>matricula</column_name>
+        <stream_name>matricula</stream_name>
+      </field>
+      <field>
+        <column_name>marca</column_name>
+        <stream_name>marca</stream_name>
+      </field>
+      <field>
+        <column_name>valor_aluguer</column_name>
+        <stream_name>valor_aluguer</stream_name>
+      </field>
+      <field>
+        <column_name>dias_aluguer</column_name>
+        <stream_name>dias_aluguer</stream_name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>256</xloc>
+      <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

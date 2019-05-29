@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>VPNM_OnRoad</name>
-    <description/>
+    <name>dw_spoon</name>
+    <description>Tranformacao de dados e povoamento</description>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
