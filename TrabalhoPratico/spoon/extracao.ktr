@@ -496,7 +496,7 @@
     <server>localhost</server>
     <type>MYSQL</type>
     <access>Native</access>
-    <database>roadtrip</database>
+    <database>onroad</database>
     <port>3306</port>
     <username>root</username>
     <password>Encrypted 2be98afc86aa7f28aaa0daf228a94b9c8</password>
@@ -555,22 +555,22 @@
     <hop>
       <from>TabelaCalendarioBD</from>
       <to>TabelaCalendarioDW</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
     <hop>
       <from>TabelaVeiculoBD</from>
       <to>NrKmsNulo</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
     <hop>
       <from>NrKmsNulo</from>
       <to>TabelaVeiculoDW</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
     <hop>
       <from>Execute SQL script 2</from>
       <to>TabelaVeiculoBD</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
     <hop>
       <from>Execute SQL script 2</from>
@@ -580,7 +580,7 @@
     <hop>
       <from>Execute SQL script 2</from>
       <to>TabelaCalendarioBD</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
   </order>
   <step>
@@ -601,11 +601,15 @@
     <quoteString>N</quoteString>
     <sql>
 set foreign_key_checks=0;
-TRUNCATE `DW_OnRoad`.`TF-Aluguer`
-TRUNCATE `DW_OnRoad`.`Dim-Calendario`
-TRUNCATE `DW_OnRoad`.`Dim-Veiculo`
-TRUNCATE `DW_OnRoad`.`Dim-Cliente`
- 
+
+
+TRUNCATE `DW_OnRoad`.`Dim-Cliente`;
+TRUNCATE `DW_OnRoad`.`Dim-Calendario`;
+TRUNCATE `DW_OnRoad`.`Dim-Veiculo`;
+TRUNCATE `DW_OnRoad`.`TF-Aluguer`;
+
+ALTER TABLE DW_OnRoad.TF-Aluguer AUTO_INCREMENT =1; 
+
 set foreign_key_checks=1; 
 
 </sql>
@@ -719,7 +723,7 @@ set foreign_key_checks=1;
 	concat(YEAR(al.dataAluguer), '-', MONTHNAME(al.dataAluguer)), 
     concat(YEAR(al.dataAluguer),'-', quarter(al.dataAluguer)),
     YEAR(al.dataAluguer)
-	FROM roadtrip.ALUGUER AS al</sql>
+	FROM onroad.ALUGUER AS al</sql>
     <limit>0</limit>
     <lookup>Execute SQL script 2</lookup>
     <execute_each_row>N</execute_each_row>
@@ -811,8 +815,11 @@ set foreign_key_checks=1;
       <schema_name/>
     </partitioning>
     <connection>onroad</connection>
-    <sql>select idCliente, nome, telemovel, dataNascimento, cidade, pais
-	From roadtrip.cliente; </sql>
+    <sql>select idCliente, nome, telemovel, dataNascimento, ci.designacao, p.designacao From onroad.cliente as c
+	inner join Cidade as ci 
+		on c.cidade=ci.idCidade 
+		inner join Pais as p
+		on p.idPais=c.pais; </sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -977,7 +984,7 @@ set foreign_key_checks=1;
     </partitioning>
     <connection>onroad</connection>
     <sql>select idVeiculo, matricula, nr_Kms, modelo, marca
-        From roadtrip.veiculo; </sql>
+        From onroad.veiculo; </sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
