@@ -5,7 +5,6 @@ SET @@session.time_zone = '+00:00';
 Select date(al.dataAluguer), al.Cliente, al.Veiculo, al.precoAluguer 
 	FROM onroad.Aluguer as al; 
   
-
  -- povoamento inicial da tabela dim-Cliente
 insert into `DW_OnRoad`.`Dim-Cliente` 
 	select idCliente, nome, telemovel, dataNascimento, cidade, pais
