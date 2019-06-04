@@ -40,7 +40,7 @@ VALUES (1, '47-WT-55', '25000.00', 'Fiat', 'Punto', '1056.00', '2018-05-20', '0.
 
 
 INSERT INTO `Cliente` (`idCliente`, `nome`, `nif`, `dataNascimento`, `pais`, `cidade`, `rua`, `cartaConducao`, `email`, `telemovel`) 
-VALUES (1, 'Célia Figueiredo', '262646080', '1993-12-24', '1', '13', 'rua da Costa', 1,'a@gmail.com','912345678'), 
+VALUES (1, 'Célia Figueiredo', '262646080', '1993-12-24', '1', '13', 'rua da Costa', 1,'a@gmail.com',null), 
 (idCliente, 'Rita Pereira', '262646080', '1984-05-06', '1', '12', 'rua da rita', 1,'a@gmail.com','912345678'), 
 (idCliente, 'Manuela Ferreira Leite', '112646080', '1965-12-24', '1', '14', 'rua da Costa', '1','a@gmail.com','912345678'), 
 (idCliente, 'Márcia Figueiredo', '262646080', '1994-01-21', '1', '3', 'rua do pinheiro', 1,'a@gmail.com','912345678'),

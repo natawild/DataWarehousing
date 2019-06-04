@@ -47,6 +47,7 @@ select * from onroad.Aluguer;
 -- TRUNCATE `DW_OnRoad`.`TF-Aluguer`
 -- TRUNCATE `DW_OnRoad`.`Dim-Calendario`
 -- TRUNCATE `DW_OnRoad`.`Dim-Veiculo`
+-- TRUNCATE `DW_OnRoad`.`Dim-Cliente`
 
 -- 1 A TABELA DE FACTOS 
 

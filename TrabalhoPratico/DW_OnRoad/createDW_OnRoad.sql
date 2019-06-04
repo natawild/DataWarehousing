@@ -5,20 +5,20 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema dw_onroad
+-- Schema dwonroad
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `dw_onroad` ;
+DROP SCHEMA IF EXISTS `dwonroad` ;
 
 -- -----------------------------------------------------
--- Schema dw_onroad
+-- Schema dwonroad
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `dw_onroad` DEFAULT CHARACTER SET utf8 ;
-USE `dw_onroad` ;
+CREATE SCHEMA IF NOT EXISTS `dwonroad` DEFAULT CHARACTER SET utf8 ;
+USE `dwonroad` ;
 
 -- -----------------------------------------------------
--- Table `dw_onroad`.`Dim-Veiculo`
+-- Table `dwonroad`.`Dim-Veiculo`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `dw_onroad`.`Dim-Veiculo` (
+CREATE TABLE IF NOT EXISTS `dwonroad`.`Dim-Veiculo` (
   `IdVeiculo` INT NOT NULL AUTO_INCREMENT,
   `Matricula` VARCHAR(45) NOT NULL,
   `NrKms` DECIMAL(9) NOT NULL,
@@ -29,9 +29,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `dw_onroad`.`Dim-Cliente`
+-- Table `dwonroad`.`Dim-Cliente`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `dw_onroad`.`Dim-Cliente` (
+CREATE TABLE IF NOT EXISTS `dwonroad`.`Dim-Cliente` (
   `IdCliente` INT NOT NULL AUTO_INCREMENT,
   `Nome` VARCHAR(45) NOT NULL,
   `Telemovel` INT(9) NOT NULL,
@@ -42,9 +42,9 @@ CREATE TABLE IF NOT EXISTS `dw_onroad`.`Dim-Cliente` (
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `dw_onroad`.`Dim-Calendario`
+-- Table `dwonroad`.`Dim-Calendario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `dw_onroad`.`Dim-Calendario` (
+CREATE TABLE IF NOT EXISTS `dwonroad`.`Dim-Calendario` (
   `Data` DATE NOT NULL,
   `Mes` VARCHAR(25) NOT NULL,
   `Trimestre` VARCHAR(25) NOT NULL,
@@ -54,9 +54,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `dw_onroad`.`TF-Aluguer`
+-- Table `dwonroad`.`TF-Aluguer`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `dw_onroad`.`TF-Aluguer` (
+CREATE TABLE IF NOT EXISTS `dwonroad`.`TF-Aluguer` (
   `idAluguer` INT NOT NULL AUTO_INCREMENT,
   `DataAluguer` DATE NOT NULL,
   `Cliente` INT NOT NULL,
@@ -67,17 +67,17 @@ CREATE TABLE IF NOT EXISTS `dw_onroad`.`TF-Aluguer` (
   INDEX `fk_TF-Aluguer_Dim-Cliente1_idx` (`Cliente` ASC),
   CONSTRAINT `fk_TF-Aluguer_Dim-Veiculo`
     FOREIGN KEY (`Veiculo`)
-    REFERENCES `dw_onroad`.`Dim-Veiculo` (`IdVeiculo`)
+    REFERENCES `dwonroad`.`Dim-Veiculo` (`IdVeiculo`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_TF-Aluguer_Dim-Cliente1`
     FOREIGN KEY (`Cliente`)
-    REFERENCES `dw_onroad`.`Dim-Cliente` (`IdCliente`)
+    REFERENCES `dwonroad`.`Dim-Cliente` (`IdCliente`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_TF-Aluguer_Dim-Calendario1`
     FOREIGN KEY (`DataAluguer`)
-    REFERENCES `dw_onroad`.`Dim-Calendario` (`Data`)
+    REFERENCES `dwonroad`.`Dim-Calendario` (`Data`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -86,5 +86,5 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
-SET time_zone = "+00:00";
+SET @@global.time_zone = '+00:00';
+SET @@session.time_zone = '+00:00';
