@@ -651,8 +651,8 @@
     <tablename_in_field>N</tablename_in_field>
     <tablename_field/>
     <tablename_in_table>Y</tablename_in_table>
-    <return_keys>Y</return_keys>
-    <return_field>identificadorAluga</return_field>
+    <return_keys>N</return_keys>
+    <return_field/>
     <fields>
       <field>
         <column_name>DataAluguer</column_name>
