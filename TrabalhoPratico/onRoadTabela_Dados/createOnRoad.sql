@@ -154,7 +154,6 @@ CREATE TABLE IF NOT EXISTS `onRoad`.`Seguro` (
   PRIMARY KEY (`idSeguro`))
 ENGINE = InnoDB;
 
-
 -- -----------------------------------------------------
 -- Table `onRoad`.`Aluguer`
 -- -----------------------------------------------------
@@ -208,3 +207,7 @@ CREATE INDEX `fk_Aluguer_Funcionario1_idx` ON `onRoad`.`Aluguer` (`Funcionario` 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+SET @@global.time_zone = '+00:00';
+SET @@session.time_zone = '+00:00';
+
+ 

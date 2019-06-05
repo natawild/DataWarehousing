@@ -430,7 +430,7 @@
     <created_date>2019/06/05 13:24:21.999</created_date>
     <modified_user>-</modified_user>
     <modified_date>2019/06/05 13:24:21.999</modified_date>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -547,18 +547,43 @@
   </connection>
   <order>
     <hop>
-      <from>Microsoft Excel TFAluguer</from>
-      <to>Selecionar TF</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Selecionar TF</from>
       <to>Merge rows TF</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>BDAluguer</from>
+      <from>Remoção da horaBD</from>
+      <to>Selecionar CalendarioBD</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Selecionar CalendarioBD</from>
       <to>Merge rows TF</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>BDAluguer</from>
+      <to>SelecionarDatas</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>SelecionarDatas</from>
+      <to>Remoção da horaBD</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Microsoft Excel TFAluguer</from>
+      <to>SelecionarExcelTF</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>SelecionarExcelTF</from>
+      <to>TiraHorastf</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>TiraHorastf</from>
+      <to>Selecionar TF</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -579,7 +604,7 @@
       <schema_name/>
     </partitioning>
     <connection>BDonroad</connection>
-    <sql>Select (al.dataAluguer), al.Cliente, al.Veiculo, al.precoAluguer 
+    <sql>Select date(al.dataAluguer), al.Cliente, al.Veiculo, al.precoAluguer 
 	FROM onroad.Aluguer as al; </sql>
     <limit>0</limit>
     <lookup/>
@@ -595,8 +620,110 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>112</xloc>
-      <yloc>160</yloc>
+      <xloc>0</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>DWTFAluguer</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>DWonroad</connection>
+    <schema/>
+    <table>tfaluguer</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>Y</ignore_errors>
+    <use_batch>N</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>Y</return_keys>
+    <return_field>identificadorAluga</return_field>
+    <fields>
+      <field>
+        <column_name>DataAluguer</column_name>
+        <stream_name>dataAluguer</stream_name>
+      </field>
+      <field>
+        <column_name>Cliente</column_name>
+        <stream_name>Cliente</stream_name>
+      </field>
+      <field>
+        <column_name>Veiculo</column_name>
+        <stream_name>Veiculo</stream_name>
+      </field>
+      <field>
+        <column_name>PrecoAluguer</column_name>
+        <stream_name>precoAluguer</stream_name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>576</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge rows TF</name>
+    <type>MergeRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <keys>
+      <key>Cliente</key>
+      <key>Veiculo</key>
+      <key>precoAluguer</key>
+      <key>dataAluguer</key>
+    </keys>
+    <values>
+      <value>Cliente</value>
+      <value>Veiculo</value>
+      <value>precoAluguer</value>
+      <value>dataAluguer</value>
+    </values>
+    <flag_field>flagfield</flag_field>
+    <reference>Selecionar CalendarioBD</reference>
+    <compare>Selecionar TF</compare>
+    <compare>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>416</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -640,7 +767,55 @@
     </file>
     <fields>
       <field>
+        <name>idAluguer</name>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
         <name>dataAluguer</name>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>dataPrevistaLevantamento</name>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>dataPrevistaEntrega</name>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>dataRealEntrega</name>
         <type>Date</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -687,6 +862,102 @@
         <decimal/>
         <group/>
       </field>
+      <field>
+        <name>kmsPercorrido</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Seguro</name>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Funcionario</name>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>caucao</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>data</name>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>mês</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>trimestre</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>ano</name>
+        <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
     </fields>
     <sheets>
       <sheet>
@@ -722,8 +993,90 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>128</xloc>
-      <yloc>272</yloc>
+      <xloc>64</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Remoção da horaBD</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <failIfNoFile>Y</failIfNoFile>
+    <calculation>
+      <field_name>Datanew</field_name>
+      <calc_type>REMOVE_TIME_FROM_DATE</calc_type>
+      <field_a>date(al.dataAluguer)</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>Date</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask>yyyy/MM/dd</conversion_mask>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>176</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Selecionar CalendarioBD</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>Datanew</name>
+        <rename>dataAluguer</rename>
+      </field>
+      <field>
+        <name>Cliente</name>
+      </field>
+      <field>
+        <name>Veiculo</name>
+      </field>
+      <field>
+        <name>precoAluguer</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>272</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -740,20 +1093,17 @@
     </partitioning>
     <fields>
       <field>
-        <name>dataAluguer</name>
-        <rename/>
+        <name>dataCorreta</name>
+        <rename>dataAluguer</rename>
       </field>
       <field>
         <name>Cliente</name>
-        <rename/>
       </field>
       <field>
         <name>Veiculo</name>
-        <rename/>
       </field>
       <field>
         <name>precoAluguer</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -766,14 +1116,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>320</xloc>
-      <yloc>272</yloc>
+      <xloc>384</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>DWTFAluguer</name>
-    <type>TableOutput</type>
+    <name>SelecionarDatas</name>
+    <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -782,40 +1132,20 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>DWonroad</connection>
-    <schema/>
-    <table>tfaluguer</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
     <fields>
       <field>
-        <column_name>Veiculo</column_name>
-        <stream_name>Veiculo</stream_name>
+        <name>date(al.dataAluguer)</name>
       </field>
       <field>
-        <column_name>PrecoAluguer</column_name>
-        <stream_name>precoAluguer</stream_name>
+        <name>Cliente</name>
       </field>
       <field>
-        <column_name>Cliente</column_name>
-        <stream_name>Cliente</stream_name>
+        <name>Veiculo</name>
       </field>
       <field>
-        <column_name>DataAluguer</column_name>
-        <stream_name>dataAluguer</stream_name>
+        <name>precoAluguer</name>
       </field>
+      <select_unspecified>N</select_unspecified>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -826,14 +1156,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>576</xloc>
-      <yloc>160</yloc>
+      <xloc>96</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Merge rows TF</name>
-    <type>MergeRows</type>
+    <name>SelecionarExcelTF</name>
+    <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -842,23 +1172,21 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <keys>
-      <key>dataAluguer</key>
-      <key>Cliente</key>
-      <key>Veiculo</key>
-      <key>precoAluguer</key>
-    </keys>
-    <values>
-      <value>dataAluguer</value>
-      <value>Cliente</value>
-      <value>Veiculo</value>
-      <value>precoAluguer</value>
-    </values>
-    <flag_field>flagfield</flag_field>
-    <reference>BDAluguer</reference>
-    <compare>Selecionar TF</compare>
-    <compare>
-    </compare>
+    <fields>
+      <field>
+        <name>dataAluguer</name>
+      </field>
+      <field>
+        <name>Cliente</name>
+      </field>
+      <field>
+        <name>Veiculo</name>
+      </field>
+      <field>
+        <name>precoAluguer</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -868,8 +1196,49 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>368</xloc>
-      <yloc>160</yloc>
+      <xloc>160</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>TiraHorastf</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <failIfNoFile>Y</failIfNoFile>
+    <calculation>
+      <field_name>dataCorreta</field_name>
+      <calc_type>REMOVE_TIME_FROM_DATE</calc_type>
+      <field_a>dataAluguer</field_a>
+      <field_b/>
+      <field_c/>
+      <value_type>Date</value_type>
+      <value_length>-1</value_length>
+      <value_precision>-1</value_precision>
+      <remove>N</remove>
+      <conversion_mask>yyyy/MM/dd</conversion_mask>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
+    </calculation>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>272</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

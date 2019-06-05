@@ -860,10 +860,6 @@
     <return_field/>
     <fields>
       <field>
-        <column_name>Data</column_name>
-        <stream_name>dataAluguer</stream_name>
-      </field>
-      <field>
         <column_name>Mes</column_name>
         <stream_name>mes</stream_name>
       </field>
@@ -875,6 +871,10 @@
         <column_name>Ano</column_name>
         <stream_name>ano</stream_name>
       </field>
+      <field>
+        <column_name>Data</column_name>
+        <stream_name>dataAluguer</stream_name>
+      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -885,7 +885,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>752</xloc>
+      <xloc>720</xloc>
       <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1556,18 +1556,23 @@
     <fields>
       <field>
         <name>idVeiculo</name>
+        <rename/>
       </field>
       <field>
         <name>matricula</name>
+        <rename/>
       </field>
       <field>
         <name>nr_Kms</name>
+        <rename/>
       </field>
       <field>
         <name>modelo</name>
+        <rename/>
       </field>
       <field>
         <name>marca</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -1660,150 +1665,6 @@
     </file>
     <fields>
       <field>
-        <name>idAluguer</name>
-        <type>Number</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>dataAluguer</name>
-        <type>Date</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>dataPrevistaLevantamento</name>
-        <type>Date</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>dataPrevistaEntrega</name>
-        <type>Date</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>dataRealEntrega</name>
-        <type>Date</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Cliente</name>
-        <type>Number</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Veiculo</name>
-        <type>Number</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>precoAluguer</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>kmsPercorrido</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Seguro</name>
-        <type>Number</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>Funcionario</name>
-        <type>Number</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
-        <name>caucao</name>
-        <type>String</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-      </field>
-      <field>
         <name>data</name>
         <type>Date</type>
         <length>-1</length>
@@ -1854,7 +1715,7 @@
     </fields>
     <sheets>
       <sheet>
-        <name>DadosAluguer</name>
+        <name>DadosCalendario</name>
         <startrow>0</startrow>
         <startcol>0</startcol>
       </sheet>
@@ -1905,7 +1766,7 @@
     <fields>
       <field>
         <name>data</name>
-        <rename>dataAluguer</rename>
+        <rename/>
       </field>
       <field>
         <name>mês</name>
@@ -1948,19 +1809,13 @@
     </partitioning>
     <keys>
       <key>dataAluguer</key>
-      <key>mes</key>
-      <key>trimestre</key>
-      <key>ano</key>
     </keys>
     <values>
       <value>dataAluguer</value>
-      <value>mes</value>
-      <value>trimestre</value>
-      <value>ano</value>
     </values>
     <flag_field>flagfield</flag_field>
-    <reference>Selecionar Calendario2</reference>
-    <compare>Selecionar CalendarioBD</compare>
+    <reference>Selecionar CalendarioBD</reference>
+    <compare>Selecionar Calendario2</compare>
     <compare>
     </compare>
     <attributes/>
@@ -1972,7 +1827,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>560</xloc>
+      <xloc>544</xloc>
       <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1992,7 +1847,7 @@
     <calculation>
       <field_name>Datanew</field_name>
       <calc_type>REMOVE_TIME_FROM_DATE</calc_type>
-      <field_a>dataAluguer</field_a>
+      <field_a>data</field_a>
       <field_b/>
       <field_c/>
       <value_type>Date</value_type>
@@ -2057,7 +1912,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>560</xloc>
+      <xloc>544</xloc>
       <yloc>608</yloc>
       <draw>Y</draw>
     </GUI>
@@ -2142,7 +1997,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>400</xloc>
+      <xloc>368</xloc>
       <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
