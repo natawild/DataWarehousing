@@ -16,9 +16,9 @@ CREATE SCHEMA IF NOT EXISTS `dwonroad` DEFAULT CHARACTER SET utf8 ;
 USE `dwonroad` ;
 
 -- -----------------------------------------------------
--- Table `dwonroad`.`Dim-Veiculo`
+-- Table `dwonroad`.`DimVeiculo`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `dwonroad`.`Dim-Veiculo` (
+CREATE TABLE IF NOT EXISTS `dwonroad`.`DimVeiculo` (
   `IdVeiculo` INT NOT NULL AUTO_INCREMENT,
   `Matricula` VARCHAR(45) NOT NULL,
   `NrKms` DECIMAL(9) NOT NULL,
@@ -29,9 +29,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `dwonroad`.`Dim-Cliente`
+-- Table `dwonroad`.`DimCliente`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `dwonroad`.`Dim-Cliente` (
+CREATE TABLE IF NOT EXISTS `dwonroad`.`DimCliente` (
   `IdCliente` INT NOT NULL AUTO_INCREMENT,
   `Nome` VARCHAR(45) NOT NULL,
   `Telemovel` INT(9) NOT NULL,
@@ -42,9 +42,9 @@ CREATE TABLE IF NOT EXISTS `dwonroad`.`Dim-Cliente` (
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `dwonroad`.`Dim-Calendario`
+-- Table `dwonroad`.`DimCalendario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `dwonroad`.`Dim-Calendario` (
+CREATE TABLE IF NOT EXISTS `dwonroad`.`DimCalendario` (
   `Data` DATE NOT NULL,
   `Mes` VARCHAR(25) NOT NULL,
   `Trimestre` VARCHAR(25) NOT NULL,
@@ -54,30 +54,30 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `dwonroad`.`TF-Aluguer`
+-- Table `dwonroad`.`TFAluguer`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `dwonroad`.`TF-Aluguer` (
+CREATE TABLE IF NOT EXISTS `dwonroad`.`TFAluguer` (
   `idAluguer` INT NOT NULL AUTO_INCREMENT,
   `DataAluguer` DATE NOT NULL,
   `Cliente` INT NOT NULL,
   `Veiculo` INT NOT NULL,
   `PrecoAluguer` DECIMAL(8,2) NOT NULL,
   PRIMARY KEY (`idAluguer`, `DataAluguer`, `Cliente`, `Veiculo`),
-  INDEX `fk_TF-Aluguer_Dim-Veiculo_idx` (`Veiculo` ASC),
-  INDEX `fk_TF-Aluguer_Dim-Cliente1_idx` (`Cliente` ASC),
-  CONSTRAINT `fk_TF-Aluguer_Dim-Veiculo`
+  INDEX `fk_TFAluguer_DimVeiculo_idx` (`Veiculo` ASC),
+  INDEX `fk_TFAluguer_DimCliente1_idx` (`Cliente` ASC),
+  CONSTRAINT `fk_TFAluguer_DimVeiculo`
     FOREIGN KEY (`Veiculo`)
-    REFERENCES `dwonroad`.`Dim-Veiculo` (`IdVeiculo`)
+    REFERENCES `dwonroad`.`DimVeiculo` (`IdVeiculo`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_TF-Aluguer_Dim-Cliente1`
+  CONSTRAINT `fk_TFAluguer_DimCliente1`
     FOREIGN KEY (`Cliente`)
-    REFERENCES `dwonroad`.`Dim-Cliente` (`IdCliente`)
+    REFERENCES `dwonroad`.`DimCliente` (`IdCliente`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_TF-Aluguer_Dim-Calendario1`
+  CONSTRAINT `fk_TFAluguer_DimCalendario1`
     FOREIGN KEY (`DataAluguer`)
-    REFERENCES `dwonroad`.`Dim-Calendario` (`Data`)
+    REFERENCES `dwonroad`.`DimCalendario` (`Data`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

@@ -10,16 +10,22 @@ insert into `DW_OnRoad`.`Dim-Cliente`
 	select idCliente, nome, telemovel, dataNascimento, cidade, pais
 	From onroad.cliente; 
     
-select * from  `DW_OnRoad`.`Dim-Cliente`;  
+select * from  `DWOnRoad`.`DimCliente`;  
 
  -- povoamento inicial da tabela dim-Veiculo  
-INSERT INTO `DW_OnRoad`.`Dim-Veiculo`
+INSERT INTO `DWOnRoad`.`DimVeiculo`
 		select idVeiculo, matricula, nr_Kms, modelo, marca
         From onroad.veiculo; 
         
-select * from `DW_OnRoad`.`Dim-Veiculo`;  
+select * from `DWOnRoad`.`DimVeiculo`;  
 
-INSERT INTO `DW_OnRoad`.`Dim-Calendario`
+INSERT INTO `dwonroad`.`dimveiculo`
+(`IdVeiculo`,`Matricula`,`NrKms`,`Modelo`,`Marca`)
+VALUES(IdVeiculo,'jjjj',20, 'ola','epa');
+
+
+
+INSERT INTO `DWOnRoad`.`DimCalendario`
 Select distinct (al.dataAluguer), 
 	concat(YEAR(al.dataAluguer), '-', MONTHNAME(al.dataAluguer)), 
     concat(YEAR(al.dataAluguer),'-', quarter(al.dataAluguer)),
@@ -29,22 +35,23 @@ Select distinct (al.dataAluguer),
     
   -- case is null   
     
-Select * from `DW_OnRoad`.`Dim-Calendario`;    
+Select * from `DWOnRoad`.`DimCalendario`;    
 
+-- TRUNCATE TABLE dimcalendario;
 
 -- povoamento inicial da tabela de factos Aluguer 
- Insert into `DW_OnRoad`.`TF-Aluguer` 
+ Insert into `DW_OnRoad`.`TFAluguer` 
 	Select al.idAluguer, date(al.dataAluguer), al.Cliente, al.Veiculo, al.precoAluguer 
 	FROM onroad.Aluguer as al; 
     
-SELECT * FROM `DW_OnRoad`.`TF-Aluguer`; 
+SELECT * FROM `DWOnRoad`.`TFAluguer`; 
 
 select * from onroad.Aluguer; 
 
 -- Análise de dados: qual o carro mais alugado 
 
 -- Limpeza do DW 
--- TRUNCATE `DW_OnRoad`.`TF-Aluguer`
+-- TRUNCATE `DW_OnRoad`.`TFAluguer`
 -- TRUNCATE `DW_OnRoad`.`Dim-Calendario`
 -- TRUNCATE `DW_OnRoad`.`Dim-Veiculo`
 -- TRUNCATE `DW_OnRoad`.`Dim-Cliente`
