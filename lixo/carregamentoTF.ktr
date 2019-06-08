@@ -620,8 +620,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>0</xloc>
-      <yloc>144</yloc>
+      <xloc>32</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -680,8 +680,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>576</xloc>
-      <yloc>144</yloc>
+      <xloc>672</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -722,8 +722,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>416</xloc>
-      <yloc>144</yloc>
+      <xloc>544</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -994,7 +994,7 @@
     </remotesteps>
     <GUI>
       <xloc>64</xloc>
-      <yloc>288</yloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1034,8 +1034,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>176</xloc>
-      <yloc>144</yloc>
+      <xloc>256</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1057,12 +1057,15 @@
       </field>
       <field>
         <name>Cliente</name>
+        <rename/>
       </field>
       <field>
         <name>Veiculo</name>
+        <rename/>
       </field>
       <field>
         <name>precoAluguer</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -1075,8 +1078,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>272</xloc>
-      <yloc>144</yloc>
+      <xloc>400</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1098,12 +1101,15 @@
       </field>
       <field>
         <name>Cliente</name>
+        <rename/>
       </field>
       <field>
         <name>Veiculo</name>
+        <rename/>
       </field>
       <field>
         <name>precoAluguer</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -1116,8 +1122,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>384</xloc>
-      <yloc>288</yloc>
+      <xloc>544</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1135,15 +1141,19 @@
     <fields>
       <field>
         <name>date(al.dataAluguer)</name>
+        <rename/>
       </field>
       <field>
         <name>Cliente</name>
+        <rename/>
       </field>
       <field>
         <name>Veiculo</name>
+        <rename/>
       </field>
       <field>
         <name>precoAluguer</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -1156,8 +1166,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>96</xloc>
-      <yloc>144</yloc>
+      <xloc>128</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1175,15 +1185,19 @@
     <fields>
       <field>
         <name>dataAluguer</name>
+        <rename/>
       </field>
       <field>
         <name>Cliente</name>
+        <rename/>
       </field>
       <field>
         <name>Veiculo</name>
+        <rename/>
       </field>
       <field>
         <name>precoAluguer</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -1196,8 +1210,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>160</xloc>
-      <yloc>288</yloc>
+      <xloc>256</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1237,8 +1251,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>272</xloc>
-      <yloc>288</yloc>
+      <xloc>400</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

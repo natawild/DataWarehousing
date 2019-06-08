@@ -12,12 +12,12 @@ VALUES (1, 'Portugal'),
 (idSeguro, '2020-11-19', '3.30', 'B - seguro contra danos'),  (idSeguro, '2018-11-05', '2.80', 'C - seguro pobre');
 
 INSERT INTO `Cidade` (`idCidade`, `designacao`, `pais`) 
-VALUES (1, null, 1), (idCidade, ' Leiria', 1), (idCidade, ' Guimaraes', 1), 
-(idCidade, ' Silves', 1), (idCidade, null, 1), (idCidade, ' Beja', 1), (idCidade, ' Viana do Castelo', 1), 
-(idCidade, ' Tavira', 1),(idCidade, ' Cascais', 1), (idCidade, ' Portalegre', 1), (idCidade, ' Lisboa', 1), (idCidade, ' Viseu', 1),
- (idCidade, null, 1), (idCidade, ' Vila Nova de Famalicão', 1), (idCidade, ' Aveiro', 1), (idCidade, ' Faro', 1), 
- (idCidade, ' Sintra', 1), (idCidade, ' Elvas', 1), (idCidade, ' Albufeira', 1), (idCidade, ' Lagos', 1), (idCidade, ' Almada', 1), 
- (idCidade, ' Évora', 1), (idCidade, ' Guimaraes', 1), (idCidade, ' Porto', 1), (idCidade, ' Maia', 1), (idCidade, ' Paris', 5), (idCidade, ' Londres', 12);
+VALUES (1, null, 1), (idCidade, 'Leiria', 1), (idCidade, 'Guimaraes', 1), 
+(idCidade, 'Silves', 1), (idCidade, null, 1), (idCidade, 'Beja', 1), (idCidade, 'Viana do Castelo', 1), 
+(idCidade, 'Tavira', 1),(idCidade, 'Cascais', 1), (idCidade, 'Portalegre', 1), (idCidade, 'Lisboa', 1), (idCidade, 'Viseu', 1),
+ (idCidade, null, 1), (idCidade, 'Vila Nova de Famalicão', 1), (idCidade, 'Aveiro', 1), (idCidade, 'Faro', 1), 
+ (idCidade, 'Sintra', 1), (idCidade, 'Elvas', 1), (idCidade, 'Albufeira', 1), (idCidade, 'Lagos', 1), (idCidade, 'Almada', 1), 
+ (idCidade, 'Évora', 1), (idCidade, 'Guimaraes', 1), (idCidade, 'Porto', 1), (idCidade, 'Maia', 1), (idCidade, 'Paris', 5), (idCidade, 'Londres', 12);
 
 INSERT INTO `Veiculo` (`idVeiculo`, `matricula`, `precoEmNovo`, `marca`, `modelo`, `nr_Kms`, `anoCompra`, `taxaDesvalorizacao`) 
 VALUES (1, '47-WT-55', '25000.00', 'Fiat', 'Punto', '1056.00', '2018-05-20', '0.050'), 

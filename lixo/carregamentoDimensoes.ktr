@@ -670,8 +670,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>48</xloc>
-      <yloc>640</yloc>
+      <xloc>96</xloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -885,8 +885,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>704</xloc>
-      <yloc>640</yloc>
+      <xloc>720</xloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1053,8 +1053,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>560</xloc>
-      <yloc>640</yloc>
+      <xloc>576</xloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1266,7 +1266,7 @@
     </remotesteps>
     <GUI>
       <xloc>96</xloc>
-      <yloc>784</yloc>
+      <yloc>688</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1688,7 +1688,7 @@
     </remotesteps>
     <GUI>
       <xloc>400</xloc>
-      <yloc>784</yloc>
+      <yloc>688</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1728,8 +1728,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>208</xloc>
-      <yloc>640</yloc>
+      <xloc>224</xloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1747,6 +1747,7 @@
     <fields>
       <field>
         <name>data</name>
+        <rename/>
       </field>
       <field>
         <name>mês</name>
@@ -1754,9 +1755,11 @@
       </field>
       <field>
         <name>trimestre</name>
+        <rename/>
       </field>
       <field>
         <name>ano</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -1770,7 +1773,7 @@
     </remotesteps>
     <GUI>
       <xloc>256</xloc>
-      <yloc>784</yloc>
+      <yloc>688</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1778,7 +1781,7 @@
     <name>Selecionar Calendario2</name>
     <type>SelectValues</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -1813,8 +1816,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>560</xloc>
-      <yloc>784</yloc>
+      <xloc>576</xloc>
+      <yloc>688</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1854,8 +1857,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>352</xloc>
-      <yloc>640</yloc>
+      <xloc>368</xloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1922,18 +1925,23 @@
     <fields>
       <field>
         <name>idVeiculo</name>
+        <rename/>
       </field>
       <field>
         <name>matricula</name>
+        <rename/>
       </field>
       <field>
         <name>nr_Kms</name>
+        <rename/>
       </field>
       <field>
         <name>modelo</name>
+        <rename/>
       </field>
       <field>
         <name>marca</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
